@@ -99,3 +99,7 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#this is my config
+/.idea/
+*.iml
