@@ -1,0 +1,80 @@
+*** Settings ***
+Library         /root/Documents/Framework_WinRm.git/threat_track/classes/VM_Windows_7.py   ${HOSTNAME}    ${USERNAME}    ${USERPASSWORD}
+Library         /root/Documents/Framework_WinRm.git/threat_track/utils/WinRm_Session.py
+*** Variables ***
+${HOSTNAME}                      192.168.130.129
+${USERNAME}                      \Marco Mendez
+${USERPASSWORD}                  Control123
+${result}
+${WIN7}
+
+${String_expect_IpConfig}        IPv4 Address. . . . . . . . . . . : 192.168.130.129(Preferred)
+${String_expect_environments}    ALLUSERSPROFILE
+${String_expect_Hostname}        WORKGROUP
+${String_expect_Set_ExcPolicy}   Successful
+
+${actual_result}
+${expect_result}                 True
+
+
+*** Test Cases ***
+Verify that is possible get the Windows RM IP configuration
+     Given I Set data windows rm
+     When I send the comand IpConfig to this remoto machine
+     Then It should retrive true result${String_expect_IpConfig}
+
+
+Verify that is possible get the Windows RM Environment variables
+     Given I Set data windows rm
+     When I run the method get environment variable
+     Then It should retrive true result${String_expect_environments}
+
+Verify that is possible get the Windows RM Hostname Configuration
+     Given I Set data windows rm
+     When I run the method get Hostname Configuration
+     Then It should retrive true result${String_expect_Hostname}
+
+
+Verify that is possible set execution policy to UnRectricted
+    Given I Set data windows rm
+     When I run the method Set Execution Policy to UnRectricted
+     Then It should retrive true result${String_expect_Set_ExcPolicy}
+
+
+Verify that is possible set execution policy to Rectricted
+    Given I Set data windows rm
+     When I run the method Set Execution Policy to Rectricted
+     Then It should retrive true result${String_expect_Set_ExcPolicy}
+
+
+*** Keywords ***
+I Set data windows rm
+    ${WIN7} =    get_class_win_7
+    ${wini} =    builtWinRM    ${WIN7}
+
+I send the comand IpConfig to this remoto machine
+    get ipconfig all
+
+
+It should retrive true result${String_expect_result}
+    ${actual_result} =    verify results    ${String_expect_result}
+    Should be equal   ${expect_result}    ${actual_result}
+
+
+I run the method get environment variable
+    get environment variable
+
+
+I run the method get Hostname Configuration
+    get hostname configuration
+
+
+I run the method Set Execution Policy to UnRectricted
+    set execution policy to unrestricted
+
+
+I run the method Set Execution Policy to Rectricted
+     ${result} =   set execution policy to restrict
+     log to console    ${result}
+
+
