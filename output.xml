@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180315 16:19:30.563" generator="Robot 3.0.2 (Python 2.7.5 on linux2)">
+<suite source="/root/Documents/Framework_WinRm.git/threat_track/test" id="s1" name="Test">
+<suite source="/root/Documents/Framework_WinRm.git/threat_track/test/test_winrm" id="s1-s1" name="Test Winrm">
+<suite source="/root/Documents/Framework_WinRm.git/threat_track/test/test_winrm/functionl_winrm_session.txt" id="s1-s1-s1" name="Functionl Winrm Session">
+<test id="s1-s1-s1-t1" name="Verify that is possible get the Windows RM IP configuration">
+<kw name="Given I Set data windows rm">
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.000" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x37431d0&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.000" starttime="20180315 16:19:30.999"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.001" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:31.001" starttime="20180315 16:19:31.000"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.001" starttime="20180315 16:19:30.999"></status>
+</kw>
+<kw name="When I send the comand IpConfig to this remoto machine">
+<kw name="Get Ipconfig All" library="WinRm_Session">
+<doc>Get the IP configuration of Windows OS.</doc>
+<status status="PASS" endtime="20180315 16:19:31.099" starttime="20180315 16:19:31.001"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.099" starttime="20180315 16:19:31.001"></status>
+</kw>
+<kw name="Then It should retrive true result${String_expect_IpConfig}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect_result}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.100" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:31.100" starttime="20180315 16:19:31.100"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:31.101" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.101" starttime="20180315 16:19:31.100"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.101" starttime="20180315 16:19:31.100"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.101" critical="yes" starttime="20180315 16:19:30.998"></status>
+</test>
+<test id="s1-s1-s1-t2" name="Verify that is possible get the Windows RM Environment variables">
+<kw name="Given I Set data windows rm">
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.103" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x3749290&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.103" starttime="20180315 16:19:31.102"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.103" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:31.103" starttime="20180315 16:19:31.103"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.103" starttime="20180315 16:19:31.102"></status>
+</kw>
+<kw name="When I run the method get environment variable">
+<kw name="Get Environment Variable" library="WinRm_Session">
+<doc>Get the environments variables of Windows OS.</doc>
+<status status="PASS" endtime="20180315 16:19:31.439" starttime="20180315 16:19:31.104"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.440" starttime="20180315 16:19:31.103"></status>
+</kw>
+<kw name="Then It should retrive true result${String_expect_environments}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect_result}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.441" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:31.441" starttime="20180315 16:19:31.440"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:31.441" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.441" starttime="20180315 16:19:31.441"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.441" starttime="20180315 16:19:31.440"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.441" critical="yes" starttime="20180315 16:19:31.101"></status>
+</test>
+<test id="s1-s1-s1-t3" name="Verify that is possible get the Windows RM Hostname Configuration">
+<kw name="Given I Set data windows rm">
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.443" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x374b8d0&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.443" starttime="20180315 16:19:31.443"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.443" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:31.443" starttime="20180315 16:19:31.443"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.443" starttime="20180315 16:19:31.442"></status>
+</kw>
+<kw name="When I run the method get Hostname Configuration">
+<kw name="Get Hostname Configuration" library="WinRm_Session">
+<doc>Get the hostname configuration of Windows OS.</doc>
+<status status="PASS" endtime="20180315 16:19:31.689" starttime="20180315 16:19:31.444"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.689" starttime="20180315 16:19:31.444"></status>
+</kw>
+<kw name="Then It should retrive true result${String_expect_Hostname}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect_result}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.690" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:31.690" starttime="20180315 16:19:31.690"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:31.691" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.691" starttime="20180315 16:19:31.690"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.691" starttime="20180315 16:19:31.690"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.691" critical="yes" starttime="20180315 16:19:31.442"></status>
+</test>
+<test id="s1-s1-s1-t4" name="Verify that is possible set execution policy to UnRectricted">
+<kw name="Given I Set data windows rm">
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.692" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x3743950&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.693" starttime="20180315 16:19:31.692"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.693" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:31.693" starttime="20180315 16:19:31.693"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.693" starttime="20180315 16:19:31.692"></status>
+</kw>
+<kw name="When I run the method Set Execution Policy to UnRectricted">
+<kw name="Set Execution Policy To Unrestricted" library="WinRm_Session">
+<doc>Set up the execution policy to unrestricted status.</doc>
+<status status="PASS" endtime="20180315 16:19:31.914" starttime="20180315 16:19:31.694"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.914" starttime="20180315 16:19:31.693"></status>
+</kw>
+<kw name="Then It should retrive true result${String_expect_Set_ExcPolicy}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect_result}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.915" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:31.915" starttime="20180315 16:19:31.915"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:31.916" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.916" starttime="20180315 16:19:31.915"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.916" starttime="20180315 16:19:31.914"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.916" critical="yes" starttime="20180315 16:19:31.691"></status>
+</test>
+<test id="s1-s1-s1-t5" name="Verify that is possible set execution policy to Rectricted">
+<kw name="Given I Set data windows rm">
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.918" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x37409d0&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:31.918" starttime="20180315 16:19:31.917"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:31.918" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:31.918" starttime="20180315 16:19:31.918"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:31.918" starttime="20180315 16:19:31.917"></status>
+</kw>
+<kw name="When I run the method Set Execution Policy to Rectricted">
+<kw name="Set Execution Policy To Restrict" library="WinRm_Session">
+<doc>Set up the execution policy to restricted status.</doc>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180315 16:19:32.148" level="INFO">${result} = Successful</msg>
+<status status="PASS" endtime="20180315 16:19:32.148" starttime="20180315 16:19:31.919"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${result}</arg>
+</arguments>
+<status status="PASS" endtime="20180315 16:19:32.149" starttime="20180315 16:19:32.149"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:32.149" starttime="20180315 16:19:31.919"></status>
+</kw>
+<kw name="Then It should retrive true result${String_expect_Set_ExcPolicy}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect_result}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:32.151" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:32.151" starttime="20180315 16:19:32.151"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:32.151" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:32.152" starttime="20180315 16:19:32.151"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:32.152" starttime="20180315 16:19:32.150"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:32.152" critical="yes" starttime="20180315 16:19:31.916"></status>
+</test>
+<status status="PASS" endtime="20180315 16:19:32.153" starttime="20180315 16:19:30.634"></status>
+</suite>
+<suite source="/root/Documents/Framework_WinRm.git/threat_track/test/test_winrm/smoke_winrm_session.txt" id="s1-s1-s2" name="Smoke Winrm Session">
+<test id="s1-s1-s2-t1" name="Verify that is posible make ping to WinRM">
+<kw name="Given I Set data windows rm">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${HOSTNAME}</arg>
+</arguments>
+<status status="PASS" endtime="20180315 16:19:32.159" starttime="20180315 16:19:32.159"></status>
+</kw>
+<kw name="Get Class Win 7" library="VM_Windows_7">
+<assign>
+<var>${WIN7}</var>
+</assign>
+<msg timestamp="20180315 16:19:32.159" level="INFO">${WIN7} = &lt;VM_Windows_7.VM_Windows_7 object at 0x3749290&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:32.159" starttime="20180315 16:19:32.159"></status>
+</kw>
+<kw name="Built Win RM" library="WinRm_Session">
+<doc>Construct</doc>
+<arguments>
+<arg>${WIN7}</arg>
+</arguments>
+<assign>
+<var>${wini}</var>
+</assign>
+<msg timestamp="20180315 16:19:32.160" level="INFO">${wini} = None</msg>
+<status status="PASS" endtime="20180315 16:19:32.160" starttime="20180315 16:19:32.159"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:32.160" starttime="20180315 16:19:32.159"></status>
+</kw>
+<kw name="When I make ping to this remoto machine">
+<kw name="Get Ping To Windows Rm" library="WinRm_Session">
+<doc>Do ping to windows configured</doc>
+<status status="PASS" endtime="20180315 16:19:35.294" starttime="20180315 16:19:32.160"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:35.294" starttime="20180315 16:19:32.160"></status>
+</kw>
+<kw name="Then It should retrive true result${expect_result}">
+<kw name="Verify Results" library="WinRm_Session">
+<arguments>
+<arg>${String_expect}</arg>
+</arguments>
+<assign>
+<var>${actual_result}</var>
+</assign>
+<msg timestamp="20180315 16:19:35.298" level="INFO">${actual_result} = True</msg>
+<status status="PASS" endtime="20180315 16:19:35.298" starttime="20180315 16:19:35.297"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${expect_result}</arg>
+<arg>${actual_result}</arg>
+</arguments>
+<msg timestamp="20180315 16:19:35.320" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'str'&gt;</msg>
+<status status="PASS" endtime="20180315 16:19:35.320" starttime="20180315 16:19:35.319"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:35.320" starttime="20180315 16:19:35.295"></status>
+</kw>
+<status status="PASS" endtime="20180315 16:19:35.320" critical="yes" starttime="20180315 16:19:32.158"></status>
+</test>
+<status status="PASS" endtime="20180315 16:19:35.322" starttime="20180315 16:19:32.154"></status>
+</suite>
+<status status="PASS" endtime="20180315 16:19:35.324" starttime="20180315 16:19:30.601"></status>
+</suite>
+<status status="PASS" endtime="20180315 16:19:35.327" starttime="20180315 16:19:30.564"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="6">Critical Tests</stat>
+<stat fail="0" pass="6">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test" pass="6">Test</stat>
+<stat fail="0" id="s1-s1" name="Test Winrm" pass="6">Test.Test Winrm</stat>
+<stat fail="0" id="s1-s1-s1" name="Functionl Winrm Session" pass="5">Test.Test Winrm.Functionl Winrm Session</stat>
+<stat fail="0" id="s1-s1-s2" name="Smoke Winrm Session" pass="1">Test.Test Winrm.Smoke Winrm Session</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

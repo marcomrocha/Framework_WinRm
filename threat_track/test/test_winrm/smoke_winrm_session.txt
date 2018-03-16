@@ -1,0 +1,44 @@
+*** Settings ***
+Library        /root/Documents/Framework_WinRm.git/threat_track/classes/VM_Windows_7.py   ${HOSTNAME}    ${USERNAME}    ${USERPASSWORD}
+Library       /root/Documents/Framework_WinRm.git/threat_track/utils/WinRm_Session.py
+*** Variables ***
+${HOSTNAME}         192.168.130.129
+${USERNAME}         \Marco Mendez
+${USERPASSWORD}     Control123
+${result}
+${WIN7}
+${String_expect}    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)
+${actual_result}
+${expect_result}    True
+
+*** Test Cases ***
+Verify that is posible make ping to WinRM
+     Given I Set data windows rm
+     When I make ping to this remoto machine
+     Then It should retrive true result${expect_result}
+
+
+
+*** Keywords ***
+I Set data windows rm
+    log to console    ${HOSTNAME}
+    ${WIN7} =    get_class_win_7
+    ${wini} =    builtWinRM    ${WIN7}
+
+I make ping to this remoto machine
+    get ping to windows rm
+
+
+It should retrive true result${expect_result}
+    ${actual_result} =    verify results    ${String_expect}
+    Should be equal   ${expect_result}    ${actual_result}
+
+
+
+
+
+
+
+
+
+
